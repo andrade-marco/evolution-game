@@ -1,0 +1,5 @@
+//Types
+export const SAVE_PERSONAL_DATA = "SAVE_PERSONAL_DATA";
+export const SAVE_BUSINESS_DATA = "SAVE_BUSINESS_DATA";
+export const SAVE_ERROR = "SAVE_ERROR";
+export const CLEAR_ERROR = "CLEAR_ERROR";
