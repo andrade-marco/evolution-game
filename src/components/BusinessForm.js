@@ -60,6 +60,7 @@ const BusinessForm = ({
           <Input
             id="revenue"
             type="number"
+            min="0"
             placeholder="Enter your company's total revenue"
             value={revenue}
             onChange={onChangeInput}
@@ -69,6 +70,7 @@ const BusinessForm = ({
           <Input
             id="employeeCount"
             type="number"
+            min="0"
             placeholder="Enter the employee count"
             value={employeeCount}
             onChange={onChangeInput}
@@ -95,9 +97,9 @@ const BusinessForm = ({
 BusinessForm.propTypes = {
   companyName: PropTypes.string,
   location: PropTypes.string,
-  industry: PropTypes.number,
-  revenue: PropTypes.number,
-  employeeCount: PropTypes.number,
+  industry: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  revenue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  employeeCount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   onChangeInput: PropTypes.func.isRequired,
   onSelectChange: PropTypes.func.isRequired,
   clearForm: PropTypes.func.isRequired,

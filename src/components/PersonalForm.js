@@ -63,6 +63,7 @@ const PersonalForm = ({
           <Input
             id="age"
             type="number"
+            min="0"
             placeholder="Enter your age"
             value={age}
             onChange={onChangeInput}
@@ -82,6 +83,7 @@ const PersonalForm = ({
         <Input
           id="income"
           type="number"
+          min="0"
           placeholder="Enter your income"
           value={income}
           onChange={onChangeInput}
@@ -108,7 +110,7 @@ PersonalForm.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   gender: PropTypes.string,
-  age: PropTypes.number,
+  age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   profession: PropTypes.string,
   income: PropTypes.string,
   onChangeInput: PropTypes.func.isRequired,

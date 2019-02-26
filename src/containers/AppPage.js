@@ -182,7 +182,6 @@ BusinessForm.defaultProps = {
 //Maps state to props
 const mapStateTopProps = state => {
   const { personalData, businessData } = state;
-  console.log(personalData, businessData);
   return { personalData, businessData };
 }
 
