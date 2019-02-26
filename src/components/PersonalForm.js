@@ -103,5 +103,29 @@ const PersonalForm = ({
   );
 }
 
+//Prop validation
+PersonalForm.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  gender: PropTypes.string,
+  age: PropTypes.number,
+  profession: PropTypes.string,
+  income: PropTypes.string,
+  onChangeInput: PropTypes.func.isRequired,
+  onSelectChange: PropTypes.func.isRequired,
+  clearForm: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
+  saving: PropTypes.bool.isRequired
+}
+
+//Default props
+PersonalForm.defaultProps = {
+  onChangeInput: () => {},
+  onSelectChange: () => {},
+  clearForm: () => {},
+  submitForm: () => {},
+  saving: false
+}
+
 //Export
 export default PersonalForm;

@@ -169,6 +169,16 @@ class AppPage extends Component {
   }
 }
 
+//Prop validation
+AppPage.propTypes = {
+  saveFormData: PropTypes.func.isRequired
+}
+
+//Default props
+BusinessForm.defaultProps = {
+  saveFormData: () => {}
+}
+
 //Maps state to props
 const mapStateTopProps = state => {
   const { personalData, businessData } = state;

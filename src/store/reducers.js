@@ -2,9 +2,7 @@
 //Internal dependencies
 import {
   SAVE_PERSONAL_DATA,
-  SAVE_BUSINESS_DATA,
-  SAVE_ERROR,
-  CLEAR_ERROR
+  SAVE_BUSINESS_DATA
 } from "./types";
 
 //Default state - defining a default state is useful to give other developers

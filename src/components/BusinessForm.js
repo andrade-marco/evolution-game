@@ -91,5 +91,28 @@ const BusinessForm = ({
   );
 }
 
+//Prop validation
+BusinessForm.propTypes = {
+  companyName: PropTypes.string,
+  location: PropTypes.string,
+  industry: PropTypes.number,
+  revenue: PropTypes.number,
+  employeeCount: PropTypes.number,
+  onChangeInput: PropTypes.func.isRequired,
+  onSelectChange: PropTypes.func.isRequired,
+  clearForm: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
+  saving: PropTypes.bool.isRequired
+}
+
+//Default props
+BusinessForm.defaultProps = {
+  onChangeInput: () => {},
+  onSelectChange: () => {},
+  clearForm: () => {},
+  submitForm: () => {},
+  saving: false
+}
+
 //Export
 export default BusinessForm;
