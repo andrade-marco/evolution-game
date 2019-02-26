@@ -17,7 +17,7 @@ class AppPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      form: "business",
+      form: "personal",
       saving: false,
       success: false,
 
