@@ -8,7 +8,7 @@ import { Message } from "semantic-ui-react";
 import "../index.css";
 
 //Internal dependencies
-import { saveFormData, clearSaveError } from "../store/actions";
+import { saveFormData } from "../store/actions";
 import PersonalForm from "../components/PersonalForm";
 import BusinessForm from "../components/BusinessForm";
 
@@ -19,6 +19,7 @@ class AppPage extends Component {
     this.state = {
       form: "business",
       saving: false,
+      success: false,
 
       //Personal data
       firstName: "",
@@ -65,6 +66,7 @@ class AppPage extends Component {
 
   getClearState = () => {
     let update = {};
+    update.success = false;
     update.firstName = "";
     update.lastName = "";
     update.profession = "";
@@ -96,6 +98,13 @@ class AppPage extends Component {
     );
   }
 
+  resolveDataSaving = () => {
+    const newState = this.getClearState();
+    newState.saving = false;
+    newState.success = true;
+    this.setState(newState);
+  }
+
   //Handlers
   handleFormSelection = event => {
     const newState = this.getClearState();
@@ -119,16 +128,16 @@ class AppPage extends Component {
 
   handleFormSubmit = () => {
     const formData = this.getFormData();
-    this.setState({ saving: true });
-    this.props.saveFormData(this.state.form, formData);
-
-    setTimeout(() => {
-      this.setState({ saving: false })
-    }, 1000);
+    this.setState({ saving: true, success: false });
+    this.props.saveFormData(
+      this.state.form,
+      formData,
+      this.resolveDataSaving
+    );
   }
 
   render () {
-    const { form } = this.state;
+    const { form, success } = this.state;
 
     return (
       <div className="page-container">
@@ -148,6 +157,12 @@ class AppPage extends Component {
         </div>
         <div className="form-wrapper">
           {this.resolveForm()}
+          {success &&
+            <Message positive>
+              <Message.Header>
+                Thank you! Your data was successfully saved.
+              </Message.Header>
+            </Message>}
         </div>
       </div>
     );
@@ -156,13 +171,10 @@ class AppPage extends Component {
 
 //Maps state to props
 const mapStateTopProps = state => {
-  const { personalData, businessData, error } = state;
-  return {
-    personalData,
-    businessData,
-    error
-  };
+  const { personalData, businessData } = state;
+  console.log(personalData, businessData);
+  return { personalData, businessData };
 }
 
 //Export
-export default connect(mapStateTopProps, { saveFormData, clearSaveError })(AppPage);
+export default connect(mapStateTopProps, { saveFormData })(AppPage);

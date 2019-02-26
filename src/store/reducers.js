@@ -24,8 +24,7 @@ const DEFAULT_STATE = {
     location: "",
     employeeCount: 0,
     revenue: 0
-  },
-  error: ""
+  }
 }
 
 export default (state = DEFAULT_STATE, action) => {
@@ -37,14 +36,6 @@ export default (state = DEFAULT_STATE, action) => {
       return { ...state, personalData: action.payload };
     case SAVE_BUSINESS_DATA:
       return { ...state, businessData: action.payload };
-
-    //In this simple app, there are no anticipated errors that could happen
-    // but in a "real" application a reducer with different types of errors
-    // should be created to handle error from API request, etc
-    case SAVE_ERROR:
-      return { ...state, error: action.payload };
-    case CLEAR_ERROR:
-      return { ...state, error: "" };
     default:
       return state;
   }

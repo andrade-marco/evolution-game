@@ -27,7 +27,7 @@ const BusinessForm = ({
   return (
     <Form className="form-container">
       <div className="form-message">
-        Please enter your business information (all fields are required)
+        Please enter your business information
       </div>
       <LabeledInput label="Company name" horizontal>
         <Input

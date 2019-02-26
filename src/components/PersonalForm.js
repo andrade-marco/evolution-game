@@ -28,7 +28,7 @@ const PersonalForm = ({
   return (
     <Form className="form-container">
       <div className="form-message">
-        Please enter your personal information (all fields are required)
+        Please enter your personal information
       </div>
       <div className="horizontal-input-group">
         <LabeledInput label="First Name" horizontal>
@@ -72,7 +72,7 @@ const PersonalForm = ({
       <LabeledInput label="Profession">
         <Input
           id="profession"
-          type="number"
+          type="text"
           placeholder="Enter your profession"
           value={profession}
           onChange={onChangeInput}
